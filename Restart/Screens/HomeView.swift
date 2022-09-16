@@ -15,8 +15,10 @@ struct HomeView: View {
     //MARK: - BODY
     var body: some View {
         VStack(spacing: 20){
-            Text("Home")
+            Text("Home".uppercased())
                 .font(.largeTitle)
+                .fontWeight(.black)
+                .foregroundColor(.green)
             
             Button(action: {
                 isOnboardingViewActive = true

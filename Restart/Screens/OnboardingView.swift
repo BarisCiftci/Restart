@@ -15,8 +15,10 @@ struct OnboardingView: View {
     //MARK: - Body
     var body: some View {
         VStack(spacing: 20){
-            Text("Onboarding")
+            Text("Onboarding".uppercased())
                 .font(.largeTitle)
+                .fontWeight(.black)
+                .foregroundColor(.pink)
             
             Button(action:{
                 isOnboardingViewActive = false
