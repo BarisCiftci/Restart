@@ -21,7 +21,7 @@ struct HomeView: View {
             
             ZStack {
                 
-                CIrcleGroupView(ShapeColor: .gray, ShapeOpacity: 0.1)
+                CircleGroupView(ShapeColor: .pink, ShapeOpacity: 0.2)
                 
                 Image("character-2")
                     .resizable()

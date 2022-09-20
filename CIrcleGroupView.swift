@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CIrcleGroupView: View {
+struct CircleGroupView: View {
     // MARK: PROPERTY
     @State var ShapeColor: Color
     @State var ShapeOpacity: Double
@@ -36,7 +36,7 @@ struct CIrcleGroupView_Previews: PreviewProvider {
                 .ignoresSafeArea(.all, edges: .all)
             
             
-            CIrcleGroupView(ShapeColor: .white, ShapeOpacity: 0.2)
+            CircleGroupView(ShapeColor: .white, ShapeOpacity: 0.2)
         }
     }
 }
