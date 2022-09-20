@@ -11,22 +11,33 @@ struct HomeView: View {
     //MARK: - PROPERTY
     
     @AppStorage("onboarding") var isOnboardingViewActive: Bool = false
+    @State  private var isAnimating = false
     
     //MARK: - BODY
     var body: some View {
+
+        
         VStack(spacing: 20){
             //MARK: - HEADER
             
             Spacer()
             
             ZStack {
-                
-                CircleGroupView(ShapeColor: .pink, ShapeOpacity: 0.2)
+               
+                CircleGroupView(ShapeColor: .secondary, ShapeOpacity: 0.2)
                 
                 Image("character-2")
                     .resizable()
                     .scaledToFit()
-                .padding()
+                    .padding()
+                    .offset(y: isAnimating ? 30 : -30)
+                    .animation(
+                        Animation
+                            .easeOut(duration: 2)
+                            .repeatForever(),
+                        value: isAnimating
+                    )
+                
             }
             
             //MARK: - CENTER
@@ -42,7 +53,9 @@ struct HomeView: View {
             Spacer()
             
             Button(action: {
-                isOnboardingViewActive = true
+                withAnimation{
+                    isOnboardingViewActive = true
+                }
             }){
                 Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
                     .imageScale(.large)
@@ -57,6 +70,11 @@ struct HomeView: View {
             .controlSize(.large)
             
         } //: VSTACK
+        .onAppear(perform: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                isAnimating = true
+            })
+        })
     }
 }
 
